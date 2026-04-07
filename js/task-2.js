@@ -1,11 +1,21 @@
 function calcAverageCalories(days) {
-  let sum = 0;
-  for (const item of days) {
-    sum += item.calories;
+  // Використовуємо let, бо сума буде змінюватися
+  let totalCalories = 0;
+
+  // Якщо масив порожній, одразу повертаємо 0, щоб не робити зайвих обчислень
+  if (days.length === 0) {
+    return 0;
   }
-  return sum / 7;
+
+  for (const day of days) {
+    totalCalories += day.calories;
+  }
+
+  // Ділимо суму на кількість днів у масиві
+  return totalCalories / days.length;
 }
 
+// Перевірка
 console.log(
   calcAverageCalories([
     { day: 'monday', calories: 3010 },
